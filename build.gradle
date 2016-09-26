@@ -34,5 +34,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-jetty")
     compile("org.springframework.boot:spring-boot-starter-actuator")
 
+    testCompile('org.springframework:spring-test')
     testCompile("junit:junit")
 }
