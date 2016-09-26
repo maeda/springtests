@@ -12,6 +12,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 /**
  * Spring Bean to help understand Spring Beans Lifecycle.
  * <br/>
@@ -56,5 +59,15 @@ public class LifecycleExampleBean implements BeanNameAware, BeanFactoryAware, Ap
     @Override
     public void destroy() throws Exception {
         System.out.println(DisposableBean.class.getSimpleName() + "#destroy");
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println(PostConstruct.class.getSimpleName() + "#postConstruct");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println(PreDestroy.class.getSimpleName() + "#preDestroy");
     }
 }
