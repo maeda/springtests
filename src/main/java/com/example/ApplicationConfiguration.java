@@ -9,6 +9,7 @@ import com.example.beans.conditional.ConditionalDisableExample;
 import com.example.beans.conditional.ConditionalEnabledExample;
 import com.example.beans.conditional.ConditionalExampleBean;
 import com.example.beans.lifecycle.LifecycleExampleBean;
+import com.example.beans.runtimevalueinjection.ValueInjectionBean;
 import com.example.beans.scopes.PrototypeConcreteClassBean;
 import com.example.beans.scopes.PrototypeInterfaceBean;
 import com.example.beans.scopes.PrototypeInterfaceBeanImpl;
@@ -67,4 +68,10 @@ public class ApplicationConfiguration {
     public PrototypeConcreteClassBean prototypeConcreteClassBean() {
         return new PrototypeConcreteClassBean();
     }
+
+    @Bean
+    public ValueInjectionBean valueInjectionBean() {
+        return new ValueInjectionBean();
+    }
+
 }
