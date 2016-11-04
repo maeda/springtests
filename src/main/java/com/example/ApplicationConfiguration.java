@@ -1,5 +1,8 @@
 package com.example;
 
+import com.example.beans.aspects.Audience;
+import com.example.beans.aspects.EncoreableIntroducer;
+import com.example.beans.aspects.Performance;
 import com.example.beans.autowired.Cake;
 import com.example.beans.autowired.Cookies;
 import com.example.beans.autowired.Dessert;
@@ -16,9 +19,11 @@ import com.example.beans.scopes.PrototypeInterfaceBeanImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Primary;
 
 @Configuration
+@EnableAspectJAutoProxy
 public class ApplicationConfiguration {
 
     @Bean
@@ -72,6 +77,20 @@ public class ApplicationConfiguration {
     @Bean
     public ValueInjectionBean valueInjectionBean() {
         return new ValueInjectionBean();
+    }
+
+    @Bean
+    public Audience audience() {
+        return new Audience();
+    }
+
+    @Bean Performance performance() {
+        return new Performance();
+    }
+
+    @Bean
+    public EncoreableIntroducer encoreableIntroducer() {
+        return new EncoreableIntroducer();
     }
 
 }

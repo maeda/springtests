@@ -9,12 +9,12 @@ import static org.junit.Assert.assertEquals;
 public class CustomQualifierDessertTest extends AbstractConfigurationTest {
 
     @Autowired
+    @Crispy
     @Cold
-    @Creamy
     private Dessert desert;
 
     @Test
     public void testCustomQualifier() {
-        assertEquals(IceCream.class.getSimpleName(), desert.name());
+        assertEquals(Cake.class.getSimpleName(), desert.name());
     }
 }

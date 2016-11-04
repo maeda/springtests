@@ -33,7 +33,11 @@ dependencies {
     }
     compile("org.springframework.boot:spring-boot-starter-jetty")
     compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.aspectj:aspectjrt:1.8.9")
+    compile("org.aspectj:aspectjweaver:1.8.9")
+    compile 'javax.inject:javax.inject:1'
 
     testCompile('org.springframework:spring-test')
     testCompile("junit:junit")
+    testCompile("com.github.stefanbirkner:system-rules:1.16.0")
 }
