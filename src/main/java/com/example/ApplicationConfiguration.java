@@ -8,6 +8,8 @@ import com.example.beans.autowired.Cookies;
 import com.example.beans.autowired.Dessert;
 import com.example.beans.autowired.IceCream;
 import com.example.beans.autowired.Popsicle;
+import com.example.beans.cache.CacheExampleRepository;
+import com.example.beans.cache.CacheExampleRepositoryImpl;
 import com.example.beans.conditional.ConditionalDisableExample;
 import com.example.beans.conditional.ConditionalEnabledExample;
 import com.example.beans.conditional.ConditionalExampleBean;
@@ -16,6 +18,9 @@ import com.example.beans.runtimevalueinjection.ValueInjectionBean;
 import com.example.beans.scopes.PrototypeConcreteClassBean;
 import com.example.beans.scopes.PrototypeInterfaceBean;
 import com.example.beans.scopes.PrototypeInterfaceBeanImpl;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +29,7 @@ import org.springframework.context.annotation.Primary;
 
 @Configuration
 @EnableAspectJAutoProxy
+@EnableCaching
 public class ApplicationConfiguration {
 
     @Bean
@@ -91,6 +97,16 @@ public class ApplicationConfiguration {
     @Bean
     public EncoreableIntroducer encoreableIntroducer() {
         return new EncoreableIntroducer();
+    }
+
+    @Bean
+    public CacheManager cacheManager() {
+        return new ConcurrentMapCacheManager();
+    }
+
+    @Bean
+    public CacheExampleRepository cacheExampleRepository() {
+        return new CacheExampleRepositoryImpl();
     }
 
 }
